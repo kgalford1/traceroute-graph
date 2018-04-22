@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Target List</h1>
+
+    {% if target_list %}
+    <ul>
+
+      {% for target in target_list %}
+      <li>
+        <a href="{% url 'graph_view' target=target.ip_address path='default' %}">{{ target.contact_centre.partner.name }} - {{ target.contact_centre.location }} - {{ target.ip_address }}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no targets being monitored.</p>
+    {% endif %}
+{% endblock %}

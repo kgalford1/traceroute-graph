@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Partner List</h1>
+
+    {% if partner_list %}
+    <ul>
+
+      {% for partner in partner_list %}
+      <li>
+        <a href="{% url 'filtered_locations' partner=partner.name %}">{{ partner.name }}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no partners being monitored.</p>
+    {% endif %}
+{% endblock %}

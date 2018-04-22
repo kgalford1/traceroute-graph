@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Graphs</h1>
+    <p>{{ hash }}</p>
+    {% if images %}
+    <ul>
+
+      {% for image in images %}
+        {% load static %}
+        <img class="resize" src="{% static image %}">
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>No images were found.</p>
+    {% endif %}
+{% endblock %}
+
+{% block pathbar %}
+    <ul>
+    {% for path in paths %}
+    <li><a href="{% url 'graph_view' target=target path=path %}">{{ path }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}

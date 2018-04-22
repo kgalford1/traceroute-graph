@@ -1,2 +1,2 @@
-# traceroute-graph
-Django server that graphs traceroutes.
+# Traceroute Graph
+Uses RRDtool to graph a traceroute.
